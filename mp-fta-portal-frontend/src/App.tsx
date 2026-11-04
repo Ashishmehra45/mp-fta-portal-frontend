@@ -30,6 +30,7 @@ import Agreements from "./pages/Agreements";
 import AgreementDetail from "./pages/AgreementDetail";
 import Knowledge from "./pages/Knowledge";
 
+
 const queryClient = new QueryClient();
 
 const App = () => (
