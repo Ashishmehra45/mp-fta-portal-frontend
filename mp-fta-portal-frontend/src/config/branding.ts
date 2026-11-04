@@ -19,7 +19,7 @@ export const branding = {
   logoUrl: mpidcLogo.url as string | null,
   contactEmail: 'export.investment@mpidc.co.in',
   contactPhone: '+91-755-257-7145',
-  helplineLabel: 'Export/ODOP Helpline',
+  helplineLabel: 'FTA/EXPORT HELPLINE',
   tradePortalUrl: 'https://mptradeportal.org/',
   address: 'Official address to be confirmed',
   /** Placeholder — official launch announcement, shown only when set */

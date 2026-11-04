@@ -1,3 +1,4 @@
+
 import mibcLogo from '@/assets/mibc-logo.png.asset.json';
 
 /**

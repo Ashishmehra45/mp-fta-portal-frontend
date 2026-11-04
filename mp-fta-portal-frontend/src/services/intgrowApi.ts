@@ -13,7 +13,7 @@ const PROXY_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/intgrow-pro
 
 /** Shown when intGrow refuses a calculation because the portal's account has no credit (HTTP 402). */
 const SERVICE_PAUSED_MESSAGE =
-  "Duty calculations are temporarily unavailable. Please try again later or contact the Export/ODOP helpline.";
+  "Duty calculations are temporarily unavailable. Please try again later or contact the FTA/EXPORT HELPLINE.";
 
 /** Signed-in users call intGrow with their own token; visitors go through the portal's server relay. */
 async function intgrowFetch(endpoint: string, init: RequestInit = {}): Promise<Response> {
