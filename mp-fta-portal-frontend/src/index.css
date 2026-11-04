@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Madhya Pradesh FTA Intelligence & Utilisation Portal — design system
+   Institutional palette: deep blue, white, restrained green.
+   All colours in HSL. */
+
+@layer base {
+  :root {
+    --background: 210 33% 98%;
+    --foreground: 218 45% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 218 45% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 45% 12%;
+
+    /* Deep institutional blue */
+    --primary: 216 72% 24%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 214 60% 95%;
+    --primary-strong: 218 78% 16%;
+
+    --secondary: 214 35% 94%;
+    --secondary-foreground: 216 60% 20%;
+
+    --muted: 214 28% 95%;
+    --muted-foreground: 216 14% 40%;
+
+    /* Green accent — used sparingly for positive outcomes and highlights */
+    --accent: 152 55% 29%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 150 42% 93%;
+
+    --warning: 36 90% 42%;
+    --warning-foreground: 0 0% 100%;
+    --warning-soft: 42 90% 93%;
+
+    /* Saffron — national tricolour cue for government framing only */
+    --saffron: 28 92% 52%;
+    --saffron-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-soft: 0 75% 96%;
+
+    --border: 214 24% 87%;
+    --input: 214 24% 84%;
+    --ring: 216 72% 35%;
+
+    --radius: 0.375rem;
+
+    --savings: 152 55% 29%;
+    --savings-foreground: 0 0% 100%;
+    --no-savings: 216 10% 55%;
+
+    --chart-1: 216 72% 30%;
+    --chart-2: 152 50% 34%;
+    --chart-3: 199 68% 44%;
+    --chart-4: 36 85% 48%;
+    --chart-5: 216 12% 58%;
+
+    --shadow-card: 0 1px 2px hsl(218 45% 12% / 0.04), 0 4px 16px -8px hsl(218 45% 12% / 0.10);
+    --shadow-raised: 0 12px 32px -16px hsl(216 72% 24% / 0.28);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 218 45% 12%;
+    --sidebar-primary: 216 72% 24%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 28% 95%;
+    --sidebar-accent-foreground: 216 60% 20%;
+    --sidebar-border: 214 24% 87%;
+    --sidebar-ring: 216 72% 35%;
+  }
+
+  .dark {
+    --background: 218 42% 7%;
+    --foreground: 210 25% 94%;
+
+    --card: 218 36% 10%;
+    --card-foreground: 210 25% 94%;
+
+    --popover: 218 36% 10%;
+    --popover-foreground: 210 25% 94%;
+
+    --primary: 213 85% 68%;
+    --primary-foreground: 218 50% 9%;
+    --primary-soft: 216 45% 16%;
+    --primary-strong: 213 90% 78%;
+
+    --secondary: 218 30% 15%;
+    --secondary-foreground: 210 25% 90%;
+
+    --muted: 218 30% 13%;
+    --muted-foreground: 214 14% 64%;
+
+    --accent: 150 50% 46%;
+    --accent-foreground: 218 50% 8%;
+    --accent-soft: 152 35% 14%;
+
+    --warning: 38 90% 56%;
+    --warning-foreground: 218 50% 8%;
+    --warning-soft: 38 50% 14%;
+
+    --saffron: 28 90% 58%;
+    --saffron-foreground: 218 50% 8%;
+
+    --destructive: 0 70% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-soft: 0 40% 15%;
+
+    --border: 218 26% 19%;
+    --input: 218 26% 22%;
+    --ring: 213 85% 68%;
+
+    --savings: 150 50% 46%;
+    --savings-foreground: 218 50% 8%;
+    --no-savings: 214 10% 50%;
+
+    --chart-1: 213 85% 66%;
+    --chart-2: 150 50% 48%;
+    --chart-3: 195 70% 55%;
+    --chart-4: 38 88% 58%;
+    --chart-5: 214 12% 55%;
+
+    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.3), 0 4px 16px -8px hsl(0 0% 0% / 0.5);
+    --shadow-raised: 0 12px 32px -16px hsl(0 0% 0% / 0.6);
+
+    --sidebar-background: 218 42% 7%;
+    --sidebar-foreground: 210 25% 94%;
+    --sidebar-primary: 213 85% 68%;
+    --sidebar-primary-foreground: 218 50% 9%;
+    --sidebar-accent: 218 30% 15%;
+    --sidebar-accent-foreground: 210 25% 90%;
+    --sidebar-border: 218 26% 19%;
+    --sidebar-ring: 213 85% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* 17px root: every rem-based size (text-xs … text-6xl, spacing) scales up for readability */
+  html {
+    font-size: 106.25%;
+    /* Always reserve the page scrollbar so layouts don't jump; smooth in-page jumps */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem; /* keeps anchored sections clear of the sticky header */
+    scrollbar-color: hsl(var(--primary) / 0.55) hsl(var(--muted));
+    scrollbar-width: auto;
+  }
+
+  /* Visible, branded scrollbars across the site (Chrome, Edge, Safari) */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary) / 0.55);
+    border-radius: 9999px;
+    border: 3px solid hsl(var(--muted));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--primary) / 0.8);
+  }
+  ::-webkit-scrollbar-corner {
+    background: hsl(var(--muted));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Sans', 'Noto Sans Devanagari', system-ui, sans-serif;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Lexend', 'Noto Sans Devanagari', system-ui, sans-serif;
+    letter-spacing: -0.015em;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Scrollable panels (menus, drop-downs): slim, always-visible scrollbar */
+  .scroll-panel {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.6) transparent;
+  }
+  .scroll-panel::-webkit-scrollbar {
+    width: 8px;
+  }
+  .scroll-panel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scroll-panel::-webkit-scrollbar-thumb {
+    border: 2px solid hsl(var(--popover));
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-raised {
+    box-shadow: var(--shadow-raised);
+  }
+  .tricolour-rule {
+    background: linear-gradient(90deg, hsl(var(--saffron)) 0 33.33%, hsl(var(--card)) 33.33% 66.66%, hsl(var(--accent)) 66.66% 100%);
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(var(--primary-foreground) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary-foreground) / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+/* Legacy calculator wrapper — now inherits the portal tokens */
+.calc-premium {
+  --calc-card-bg: hsl(var(--card));
+  --calc-card-border: var(--border);
+  --calc-card-hover-border: var(--ring);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.calc-serif,
+.landing-serif {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.calc-premium .calc-card {
+  background: var(--calc-card-bg);
+  border: 1px solid hsl(var(--calc-card-border));
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease;
+}
+
+.calc-premium .calc-card:hover {
+  border-color: hsl(var(--calc-card-hover-border) / 0.5);
+}
+
+/* Print Styles */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  header, footer, nav, .print-hide {
+    display: none !important;
+  }
+  .page-break-avoid {
+    break-inside: avoid;
+  }
+  .card {
+    box-shadow: none !important;
+    border: 1px solid hsl(var(--border)) !important;
+  }
+}
+
+/* Mobile friendliness: let grid columns shrink instead of pushing content off small screens,
+   and stop long words/links from widening the page. */
+.grid > * {
+  min-width: 0;
+}
+@media (max-width: 639px) {
+  main p, main li, main dd, main td, main a {
+    overflow-wrap: break-word;
+  }
+}
