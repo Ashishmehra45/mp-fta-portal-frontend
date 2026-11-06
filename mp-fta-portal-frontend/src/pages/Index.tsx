@@ -60,6 +60,7 @@ function SectionTitle({ eyebrow, title, className }: { eyebrow: string; title: s
 
 const Index = () => {
   const navigate = useNavigate();
+  const [downloadOpen, setDownloadOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [suggestOpen, setSuggestOpen] = useState(false);
   const suggestions = useMemo(() => suggestProducts(query, 6), [query]);
@@ -74,7 +75,7 @@ const Index = () => {
   return (
     <PortalLayout>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-primary-strong text-primary-foreground">
+      <section className="relative z-40 bg-primary-strong text-primary-foreground">
         <div className="container relative py-8 sm:py-12 md:py-16">
           <div className="mx-auto grid max-w-6xl items-center gap-8 sm:gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
 
@@ -129,6 +130,49 @@ const Index = () => {
                 ))}
                 <Link to="/trade-agreements" className="px-2 py-1 text-sm font-medium text-saffron hover:underline">All →</Link>
               </div>
+
+              {/* 🔥 NEW: FTA HANDBOOK DOWNLOAD BUTTON & DROPDOWN 🔥 */}
+              <div className="mx-auto mt-8 flex justify-center relative">
+                <div className="relative">
+                  <button 
+                    type="button"
+                    onClick={() => setDownloadOpen(!downloadOpen)}
+                    className="flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 shadow-lg"
+                  >
+                    FTA Handbook Download
+                    <svg className={`h-4 w-4 transition-transform ${downloadOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {downloadOpen && (
+                    <div className="absolute left-1/2 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-lg bg-white shadow-2xl z-50 text-left border border-gray-100">
+                      <div className="bg-gray-50 px-4 py-2 text-xs font-bold text-black uppercase tracking-wider border-b border-gray-100">
+                        MP FTA Handbook for Exporters
+                      </div>
+                      <a href="/pdf/Madhya_Pradesh_FTA_Handbook_for_Exporters_04Nov2026_v17_print.pdf" target="_blank" rel="noreferrer" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#004B87] hover:text-white transition-colors">
+                        English Version (PDF)
+                      </a>
+                      <a href="/pdf/Madhya_Pradesh_FTA_Handbook_for_Exporters_Hindi_04Nov2026_v13_print.pdf" target="_blank" rel="noreferrer" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#004B87] hover:text-white transition-colors border-b border-gray-100">
+                        Hindi Version (PDF)
+                      </a>
+
+                      <div className="bg-gray-50 px-4 py-2 text-xs font-bold text-black uppercase tracking-wider border-b border-gray-100">
+                        MP FTA Action Plan 2026-27
+                      </div>
+                      <a href="/pdf/Madhya_Pradesh_FTA_Action_Plan_2026-27_English_Print_Final_5Nov2026.pdf" target="_blank" rel="noreferrer" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#004B87] hover:text-white transition-colors">
+                        English Version (PDF)
+                      </a>
+                      <a href="/pdf/Madhya_Pradesh_FTA_Action_Plan_2026-27_Hindi_Print_Final_5Nov2026.pdf" target="_blank" rel="noreferrer" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#004B87] hover:text-white transition-colors">
+                        Hindi Version (PDF)
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+              {/* 🔥 END OF DOWNLOAD BUTTON 🔥 */}
+
             </div>
 
             <figure className="mx-auto w-full max-w-sm lg:max-w-[420px] lg:self-center">
