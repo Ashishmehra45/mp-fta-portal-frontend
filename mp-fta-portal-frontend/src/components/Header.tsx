@@ -18,7 +18,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const groups: { label: string; items: PortalModule[] }[] = [
-  { label: 'FTA Tools', items: modules.filter((m) => m.group === 'tools') },
+  // { label: 'FTA Tools', items: modules.filter((m) => m.group === 'tools') },
   { label: 'FTA Markets', items: modules.filter((m) => m.group === 'markets') },
 ];
 
