@@ -25,6 +25,7 @@ import ExportReadiness from "./pages/ExportReadiness";
 import Agreements from "./pages/Agreements";
 import AgreementDetail from "./pages/AgreementDetail";
 import Knowledge from "./pages/Knowledge";
+import Admin from  "./pages/AdminDashboard"
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
                 <Route path="/" element={<Index />} />
+              <Route path="/admin-fta-portal-ctrl-9x" element={<Admin />} />
 
               {/* Protected Routes — login ke bina koi bhi page access nahi hoga */}
               <Route element={<ProtectedRoutes />}>
